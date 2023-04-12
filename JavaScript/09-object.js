@@ -13,14 +13,20 @@ console.log(typeof document); // object
 
 // Les fonctions sont des objets
 console.log(Math.random instanceof Object); // true
+console.log(Number instanceof Object); // true
+console.log(String instanceof Object); // true
 
 // Pour créer ses objets
 // Il y a 2 systèmes
 
 // Object literal
+// si utilisé plusieurs fois, ne pas mettre de méthodes (elles seraient dupliquées)
 const coords = {
   x: 1,
   y: 2,
+  infos: function() {
+
+  },
 };
 
 console.log(coords.x); // 1
@@ -50,15 +56,15 @@ delete Math.sum;
 // Pour créer des objets multiples on peut utiliser des fonctions constructeurs
 
 
-function User() {
-  this.name = 'Romain';
+function User(name) {
+  this.name = name;
 }
 
 User.prototype.hello = function() {
   return `Hello ${this.name}`;
 }
 
-const romain = new User();
+const romain = new User('Romain');
 
 console.log(typeof User); // function
 console.log(typeof romain); // object
