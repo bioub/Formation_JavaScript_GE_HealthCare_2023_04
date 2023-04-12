@@ -1,5 +1,5 @@
 const readline = require('readline');
-// importer Random depuis random.js
+const Random = require('./random');
 
 function Jeu(options) {
   // configure readline pour lire sur le clavier
@@ -42,3 +42,4 @@ Jeu.prototype.jouer = function () {
 };
 
 // exporter Jeu avec module.exports
+module.exports = Jeu;

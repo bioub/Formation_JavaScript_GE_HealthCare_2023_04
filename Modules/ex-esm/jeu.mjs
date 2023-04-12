@@ -1,4 +1,5 @@
 import { createInterface } from 'readline';
+import { getRandomInt } from './random.mjs';
 // importer la fonction getRandomInt uniquement depuis random.mjs
 
 function Jeu(options) {
@@ -42,3 +43,4 @@ Jeu.prototype.jouer = function () {
 };
 
 // exporter Jeu avec export default
+export default Jeu;
