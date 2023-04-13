@@ -1,0 +1,15 @@
+{
+  "type": "module",
+  "devDependencies": {
+    "ncp": "^2.0.0",
+    "serve": "^14.2.0",
+    "typescript": "^5.0.4"
+  },
+  "scripts": {
+    "build:html": "ncp src/index.html dist/index.html",
+    "build:ts": "tsc",
+    "watch:ts": "tsc --watch",
+    "build": "npm run build:ts && npm run build:html",
+    "serve": "serve dist"
+  }
+}
