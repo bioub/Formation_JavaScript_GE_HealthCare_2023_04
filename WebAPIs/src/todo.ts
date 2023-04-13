@@ -11,13 +11,20 @@ export function createTodo(todo: Todo): HTMLDivElement {
   //     <button>-</button>
   //   </div>
   const divEl = document.createElement('div');
-
   divEl.className = "todos-item";
   divEl.dataset.todoId = String(todo.id);
 
+  const checkboxEl = document.createElement('input');
+  checkboxEl.type = 'checkbox';
+  checkboxEl.checked = todo.completed;
+
   const spanEl = document.createElement('span');
   spanEl.innerText = todo.title;
-  divEl.append(spanEl);
+
+  const buttonEl = document.createElement('button');
+  buttonEl.innerText = '-';
+
+  divEl.append(checkboxEl, spanEl, buttonEl);
 
   /*
   Exercice 1
@@ -34,6 +41,9 @@ export function createTodo(todo: Todo): HTMLDivElement {
   Exercice 2
   Au clic du bouton moins, supprimer la div parent
   */
+  buttonEl.addEventListener('click', () => {
+    divEl.remove();
+  });
 
   return divEl;
 }
