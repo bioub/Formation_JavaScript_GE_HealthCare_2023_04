@@ -9,6 +9,7 @@ const user = {
 
 console.log(hello.call(user, 'Jean', 'Eric'));
 console.log(hello.apply(user, ['Jean', 'Eric']));
+console.log(hello.call(user, ...['Jean', 'Eric']));
 
 const helloUser = hello.bind(user);
 console.log(helloUser('Jean', 'Eric'));

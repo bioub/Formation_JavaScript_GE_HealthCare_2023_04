@@ -159,7 +159,10 @@ for (const entry of Object.entries(coords)) {
   const key = entry[0];
   const value = entry[1];
   console.log(key, value);
+}
 
+for (const [key, value] of Object.entries(coords)) {
+  console.log(key, value);
 }
 
 // ES5

@@ -1,3 +1,7 @@
+// Eviter ce genre de pattern
+// (équivalent class Math)
+// car pas de Tree Shaking possible
+// (élimination du code non importé au moment du build)
 const Random = {
   getRandom() {
     return Math.random();
