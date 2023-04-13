@@ -41,9 +41,9 @@ export function createTodo(todo: Todo): HTMLDivElement {
   Exercice 2
   Au clic du bouton moins, supprimer la div parent
   */
-  buttonEl.addEventListener('click', () => {
-    divEl.remove();
-  });
+  // buttonEl.addEventListener('click', () => {
+  //   divEl.remove();
+  // });
 
   return divEl;
 }

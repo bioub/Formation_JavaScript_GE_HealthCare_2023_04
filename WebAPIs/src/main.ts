@@ -35,3 +35,13 @@ inputEl.addEventListener('beforeinput', (event) => {
     event.preventDefault();
   }
 });
+
+// Reprendre l'exercice 2
+// Mais écouter le click de listEl (qui existe au chargement)
+// et grace à la phase de target vérifier si on a click sur le
+// bouton moins (vous pouvez ajouter une classe sur le bouton si c'est plus simple)
+// et supprimer la balise divEl (dont vous n'aurez plus la référence
+// plus de closure)
+// buttonEl.addEventListener('click', () => {
+//     divEl.remove();
+// });

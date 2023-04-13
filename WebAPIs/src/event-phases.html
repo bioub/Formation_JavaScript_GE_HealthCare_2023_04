@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .dropdown-value {
+      border: 1px solid grey;
+      padding: 5px;
+    }
+
+    .dropdown-menu {
+      border: 1px solid grey;
+    }
+
+    .dropdown-item {
+      padding: 5px;
+    }
+  </style>
+  <script type="module">
+    const dropdownEl = document.querySelector('.dropdown');
+    const menuEl = document.querySelector('.dropdown-menu');
+    dropdownEl.addEventListener('click', (event) => {
+      // event.stopPropagation();
+      menuEl.hidden = !menuEl.hidden;
+    });
+
+    window.addEventListener('click', (event) => {
+      if (!dropdownEl.contains(event.target)) {
+        menuEl.hidden = true;
+      }
+    });
+    // window.addEventListener('click', () => {
+    //   menuEl.hidden = true;
+    // }, {
+    //   capture: true,
+    // })
+  </script>
+</head>
+<body>
+  <div class="dropdown">
+    <div class="dropdown-value">
+      ABC
+    </div>
+    <div class="dropdown-menu" hidden>
+      <div class="dropdown-item">ABC</div>
+      <div class="dropdown-item">DEF</div>
+      <div class="dropdown-item">XYZ</div>
+    </div>
+  </div>
+</body>
+</html>
