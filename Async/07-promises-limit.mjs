@@ -1,6 +1,8 @@
 import { log } from 'console';
 import { Observable } from 'rxjs';
 import { setInterval } from 'timers/promises'
+import { createReadStream } from 'fs'
+import { createInterface } from 'readline'
 
 // function interval(delayMs) {
 //   return new Promise((resolve, reject) => {
@@ -38,7 +40,14 @@ import { setInterval } from 'timers/promises'
 // });
 
 // - Async iteration (ES2018)
-for await (const _ of setInterval(1000)) {
-  console.log('1s');
-}
+// for await (const _ of setInterval(1000)) {
+//   console.log('1s');
+// }
 
+const rl = createInterface({
+  input: createReadStream('.prettierrc'),
+})
+
+for await (const line of rl) {
+  console.log(line);
+}

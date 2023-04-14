@@ -1,4 +1,10 @@
-type Todo = {
+// type Todo = {
+//   id: number;
+//   title: string;
+//   completed: boolean;
+// }
+
+interface Todo {
   id: number;
   title: string;
   completed: boolean;
@@ -6,7 +12,7 @@ type Todo = {
 
 export function createTodo(todo: Todo): HTMLDivElement {
   // <div class="todos-item" data-todo-id="32">
-  //     <input type="checkbox">
+  //     <input type="checkbox" checked>
   //     <span>ABC</span>
   //     <button>-</button>
   //   </div>
@@ -23,6 +29,7 @@ export function createTodo(todo: Todo): HTMLDivElement {
 
   const buttonEl = document.createElement('button');
   buttonEl.innerText = '-';
+  buttonEl.className = 'todos-delete';
 
   divEl.append(checkboxEl, spanEl, buttonEl);
 

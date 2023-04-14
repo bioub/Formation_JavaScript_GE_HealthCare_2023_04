@@ -30,11 +30,11 @@ toggleEl.addEventListener('click', () => {
   }
 });
 
-inputEl.addEventListener('beforeinput', (event) => {
-  if (!event.data?.match(/^[a-z]+$/i)) {
-    event.preventDefault();
-  }
-});
+// inputEl.addEventListener('beforeinput', (event) => {
+//   if (!event.data?.match(/^[a-z]+$/i)) {
+//     event.preventDefault();
+//   }
+// });
 
 // Reprendre l'exercice 2
 // Mais écouter le click de listEl (qui existe au chargement)
@@ -42,6 +42,10 @@ inputEl.addEventListener('beforeinput', (event) => {
 // bouton moins (vous pouvez ajouter une classe sur le bouton si c'est plus simple)
 // et supprimer la balise divEl (dont vous n'aurez plus la référence
 // plus de closure)
-// buttonEl.addEventListener('click', () => {
-//     divEl.remove();
-// });
+listEl.addEventListener('click', (event) => {
+  const target = event.target as HTMLElement;
+
+  if (target.classList.contains('todos-delete')) {
+    target.closest('.todos-item')?.remove();
+  }
+});
