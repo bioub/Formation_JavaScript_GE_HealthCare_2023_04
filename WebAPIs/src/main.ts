@@ -1,18 +1,27 @@
-import { createTodo } from "./todo.js";
+import { Todo, createTodo } from "./todo.js";
 
 const formEl = document.querySelector('.todos-form') as HTMLFormElement;
 const listEl = document.querySelector('.todos-list') as HTMLDivElement;
 const inputEl = document.querySelector('.todos-new-value') as HTMLInputElement;
 const toggleEl = document.querySelector('.todos-toggle-checkbox') as HTMLInputElement;
 
-formEl.addEventListener('submit', (event) => {
+formEl.addEventListener('submit', async (event) => {
   event.preventDefault(); // désactive le form
 
-  const divEl = createTodo({
-    id: Math.random(),
-    title: inputEl.value,
-    completed: false,
-  });
+  const res = await fetch('http://localhost:4000/api/todos', {
+    method: 'POST',
+    headers: {
+      'Content-type': 'application/json',
+    },
+    body: JSON.stringify({
+      title: inputEl.value,
+      completed: false,
+    })
+  })
+
+  const todoFromNodeJS = await res.json();
+
+  const divEl = createTodo(todoFromNodeJS);
 
   listEl.append(divEl);
 });
@@ -49,3 +58,12 @@ listEl.addEventListener('click', (event) => {
     target.closest('.todos-item')?.remove();
   }
 });
+
+const res = await fetch('http://localhost:4000/api/todos');
+const todos: Todo[] = await res.json()
+
+for (const todo of todos) {
+  const divEl = createTodo(todo);
+
+  listEl.append(divEl);
+}

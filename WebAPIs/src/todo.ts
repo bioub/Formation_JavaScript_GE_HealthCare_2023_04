@@ -1,14 +1,14 @@
-// type Todo = {
-//   id: number;
-//   title: string;
-//   completed: boolean;
-// }
-
-interface Todo {
+export type Todo = {
   id: number;
   title: string;
   completed: boolean;
 }
+
+// interface Todo {
+//   id: number;
+//   title: string;
+//   completed: boolean;
+// }
 
 export function createTodo(todo: Todo): HTMLDivElement {
   // <div class="todos-item" data-todo-id="32">
